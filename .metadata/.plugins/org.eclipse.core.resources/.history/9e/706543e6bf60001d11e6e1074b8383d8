@@ -1,0 +1,6 @@
+package com.ashram.spring;
+
+public interface BookService(Map<String, Object> map) {
+
+
+}

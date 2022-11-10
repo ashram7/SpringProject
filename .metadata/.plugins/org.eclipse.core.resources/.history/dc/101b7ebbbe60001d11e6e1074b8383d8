@@ -1,0 +1,7 @@
+package com.ashram.spring;
+
+public interface BookService {
+
+	String create();
+
+}
