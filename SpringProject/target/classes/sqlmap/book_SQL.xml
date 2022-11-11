@@ -10,21 +10,20 @@
 	    (#{title}, #{category}, #{price})
 	    ]]>
 	</insert>
-	
-	<select id="select_detail" parameterType="hashMap" resultType="hashMap">
+	<select id="select_detail" parameterType="hashMap"
+		resultType="hashMap">
 	    <![CDATA[
-	    select
+	        select
 	        title,
 	        category,
 	        price,
-	        insert_date
-	    from
+		insert_date
+	        from
 	        book
-	    where
-	        book_id = #{bookId}
+	        where
+	        book_id = #{bookId}			
 	    ]]>
 	</select>
-	
 	<update id="update" parameterType="hashMap">
 	    <![CDATA[
 	        update book set 
@@ -35,14 +34,27 @@
 	        book_id = #{bookId}
 	    ]]>
 	</update>
-	
 	<delete id="delete" parameterType="hashMap">
 		<![CDATA[
 		        delete from book
 		        where
 		        book_id = #{bookId}
-		]]>
+		    ]]>
 	</delete>
-
+			
+	<select id="select_list" parameterType="hashMap" resultType="hashMap">
+	  <![CDATA[
+	    select
+	    book_id,
+	    title,
+	    category,
+	    price,
+	    insert_date
+	    from
+	    book
+	    where 1 = 1
+	    order by insert_date desc
+	    ]]>
+	</select>	
 
 </mapper>

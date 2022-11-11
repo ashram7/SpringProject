@@ -1,5 +1,6 @@
 package com.ashram.spring;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,5 +86,16 @@ public class BookController {
         return mav;
     }
     
+	@RequestMapping(value = "list")
+	public ModelAndView list(@RequestParam Map<String, Object> map) {
+	    
+	    List<Map<String, Object>> list = this.bookService.list(map);
+	    
+	    ModelAndView mav = new ModelAndView();
+	    mav.addObject("data", list);		
+	    
+	    mav.setViewName("/book/list");
+	    return mav;
+	}    
     
 }
